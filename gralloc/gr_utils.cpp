@@ -153,7 +153,8 @@ bool IsCompressedRGBFormat(int format) {
   return false;
 }
 
-bool IsCameraCustomFormat(int format) {
+bool IsCameraCustomFormat([[maybe_unused]] int format) {
+#ifndef NO_CAMERA_CUSTOM_FORMAT
   switch (format) {
     case HAL_PIXEL_FORMAT_NV21_ZSL:
     case HAL_PIXEL_FORMAT_NV12_UBWC_FLEX:
@@ -170,7 +171,8 @@ bool IsCameraCustomFormat(int format) {
     default:
       break;
   }
-
+#endif
+  
   return false;
 }
 
